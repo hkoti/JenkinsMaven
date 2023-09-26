@@ -24,3 +24,24 @@ pipeline {
             }
       }
 }
+# Jenkinsfile
+
+pipeline {
+    agent any
+    stages {
+        stage('Check Branch') {
+            steps {
+                script {
+                    def branchName = sh(script: 'git rev-parse --abbrev-ref HEAD', returnStdout: true).trim()
+                    if (branchName == 'develop') {
+                        echo "Building on Develop branch"
+                        // Add your build steps for the develop branch here
+                    } else {
+                        echo "Not on Develop branch. Skipping build."
+                    }
+                }
+            }
+        }
+    }
+}
+
