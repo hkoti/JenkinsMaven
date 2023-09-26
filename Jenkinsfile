@@ -22,6 +22,19 @@ pipeline {
                         echo "Deploying in Production Area"
                   }
             }
+            stage('Check Branch') {
+            steps {
+                script {
+                    def branchName = sh(script: 'git rev-parse --abbrev-ref HEAD', returnStdout: true).trim()
+                    if (branchName == 'develop') {
+                        echo "Building on Develop branch"
+                        // Add your build steps here
+                    } else {
+                        echo "Not on Develop branch. Skipping build."
+                    }
+                }
+            }
+        }
       }
 }
 
