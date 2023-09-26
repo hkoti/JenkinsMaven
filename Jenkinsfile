@@ -1,18 +1,6 @@
 pipeline {
       agent any
       stages {
-             stage('Webhook Trigger') {
-            when {
-                expression { 
-                    def payload = JSON.parse(env.GITHUB_PAYLOAD)
-                    return payload.ref == 'refs/heads/develop' && payload.repository.full_name == 'hkoti/JenkinsMaven'
-                }
-            }
-            steps {
-                echo 'Webhook triggered for a push to the develop branch'
-               
-            }
-        }
             stage('Init') {
                   steps {
                         echo 'Hi, this is first line'
