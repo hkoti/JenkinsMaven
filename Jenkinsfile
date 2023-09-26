@@ -24,7 +24,6 @@ pipeline {
             }
       }
 }
-# Jenkinsfile
 
 pipeline {
     agent any
