@@ -26,7 +26,7 @@ pipeline {
             when {
                 expression { 
                     def payload = JSON.parse(env.GITHUB_PAYLOAD)
-                    return payload.ref == 'refs/heads/develop' && payload.repository.full_name == 'yourusername/yourrepository'
+                    return payload.ref == 'refs/heads/develop' && payload.repository.full_name == 'hkoti/JenkinsMaven'
                 }
             }
             steps {
