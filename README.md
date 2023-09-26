@@ -1,4 +1,3 @@
-#this line is to be deleted
 # Jenkins_Projects
 
 This is Maven Project
